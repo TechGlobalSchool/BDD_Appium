@@ -7,6 +7,7 @@ import io.cucumber.java.Before;
 import mobile.pages.ApiDemoAccessibilityPage;
 import mobile.pages.ApiDemoGraphicsPage;
 import mobile.pages.ApiDemoHomePage;
+import mobile.pages.ApiDemoTextPage;
 import mobile.utils.Driver;
 
 
@@ -16,6 +17,7 @@ public class MobileHooks {
     public static ApiDemoHomePage apiDemoHomePage;
     public static ApiDemoAccessibilityPage apiDemoAccessibilityPage;
     public static ApiDemoGraphicsPage apiDemoGraphicsPage;
+    public static ApiDemoTextPage apiDemoTextPage;
 
 
     @Before
@@ -24,6 +26,7 @@ public class MobileHooks {
         apiDemoHomePage = new ApiDemoHomePage(androidDriver);
         apiDemoAccessibilityPage = new ApiDemoAccessibilityPage(androidDriver);
         apiDemoGraphicsPage = new ApiDemoGraphicsPage(androidDriver);
+        apiDemoTextPage = new ApiDemoTextPage(androidDriver);
     }
 
     @After

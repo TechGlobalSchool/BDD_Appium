@@ -1,6 +1,7 @@
 package mobile.stepDefs;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -74,5 +75,32 @@ public class ApiDemoStepDefs {
     @Then("user validates title is {string}")
     public void userValidatesTitleIs(String expectedTitle) {
         assertEquals(expectedTitle, apiDemoGraphicsPage.verticesTitle.getText());
+    }
+
+    @Then("user validates options are displayed")
+    public void userValidatesOptionsAreDisplayed(DataTable expectedOptionTexts) {
+        assertTextForTwoLists(expectedOptionTexts, apiDemoTextPage.textOptions);
+    }
+
+    @And("user validates the message is {string}")
+    public void userValidatesTheMessageIs(String expectedText) {
+        assertEquals(expectedText, apiDemoTextPage.logTextBox.getText().trim());
+    }
+
+    @Given("user taps by coordinates {int}, {int} on {string}")
+    public void userTapsByCoordinatesOn(int x, int y, String elementText) {
+        tapByCoordinates(androidDriver, x, y);
+        System.out.println("Driver clicked on " + elementText + " element!");
+    }
+
+    @And("user presses for {int} seconds long by coordinates {int}, {int} to {string}")
+    public void userPressesForSecondsLongByCoordinatesTo(int seconds, int x, int y, String elementText) {
+        pressByCoordinates(androidDriver, x, y, seconds);
+        System.out.println("Driver clicked on " + elementText + " element!");
+    }
+
+    @And("user should see {string}")
+    public void userShouldSee(String expectedText) {
+        assertEquals(expectedText, getElementByText(androidDriver, expectedText).getText());
     }
 }
