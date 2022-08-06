@@ -61,7 +61,8 @@ public class MobileCommonUtils {
      * @param visibleText
      */
     public static void scrollAndClick(AndroidDriver<AndroidElement> driver, String visibleText) {
-        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" + ".scrollIntoView(text(\"" + visibleText + "\"))").click();
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector())" +
+                ".scrollIntoView(text(\"" + visibleText + "\"))").click();
     }
 
     //Tap by coordinates

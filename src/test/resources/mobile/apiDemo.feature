@@ -11,24 +11,39 @@ Feature: Api Demo Application
     Given user taps on "Accessibility"
     Then user should be able to see "Custom View"
 
-#  @ValidateInputBox
-#  Scenario: Validate input box is displayed
-#    Given user taps on Views
-#    And user taps on Animation
-#    And user taps on Shake
-#    Then user should be able to see input box
-#
-#  @ValidateAllTexts
-#  Scenario: Get texts of All options and validate them
-#    Given user gets texts of all options and validates them
-#      | Accessibility |
-#      | Animation     |
-#      | App           |
-#      | Content       |
-#      | Graphics      |
-#      | Media         |
-#      | NFC           |
-#      | OS            |
-#      | Preference    |
-#      | Text          |
-#      | Views         |
+  @ValidateInputBox
+  Scenario: Validate input box is displayed
+    Given user taps on "Views"
+    And user taps on "Animation"
+    And user taps on "Shake"
+    Then user should be able to see input box
+
+  @ValidateAllTexts
+  Scenario: Get texts of All options and validate them
+    Given user gets texts of all options and validates them
+      | Accessibility |
+      | Animation     |
+      | App           |
+      | Content       |
+      | Graphics      |
+      | Media         |
+      | NFC           |
+      | OS            |
+      | Preference    |
+      | Text          |
+      | Views         |
+
+  @ValidateSizeOfElement
+  Scenario: Get All Elements with ClassName
+    Given user gets all elements then user validates size of element is 12
+
+  @ValidateTextWithXpath
+  Scenario: Get text of button
+    Given user gets text of Graphics option then user validates that it is "Graphics"
+
+  @TapAndScrollToElement
+  Scenario: Tap to Graphics and Scroll to Vertices and Tap to Vertices
+    Given user taps on "Graphics"
+    When user scrolls and taps on "Vertices"
+    Then user validates picture is displayed
+    Then user validates title is "Graphics/Vertices"

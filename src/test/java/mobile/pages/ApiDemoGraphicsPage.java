@@ -6,14 +6,14 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-public class ApiDemoAccessibilityPage {
-    public ApiDemoAccessibilityPage(AndroidDriver<AndroidElement> androidDriver){
+public class ApiDemoGraphicsPage {
+    public ApiDemoGraphicsPage(AndroidDriver<AndroidElement> androidDriver){
         PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
     }
 
-    @AndroidFindBy(accessibility = "Custom View")
-    public AndroidElement customViewOption;
+    @AndroidFindBy(className = "android.view.View")
+    public AndroidElement picture;
 
-    @AndroidFindBy(id = "io.appium.android.apis:id/pw")
-    public AndroidElement passwordInputBox;
+    @AndroidFindBy(className = "android.widget.TextView")
+    public AndroidElement verticesTitle;
 }

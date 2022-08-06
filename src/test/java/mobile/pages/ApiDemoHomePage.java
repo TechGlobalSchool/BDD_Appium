@@ -22,6 +22,15 @@ public class ApiDemoHomePage {
     @AndroidFindBy(accessibility = "Accessibility")
     public AndroidElement accessibilityOption;
 
+    @AndroidFindBy(id = "android:id/text1")
+    public List<AndroidElement> allOptions;
+
+    @AndroidFindBy(className = "android.widget.TextView")
+    public List<AndroidElement> allElements;
+
+    @AndroidFindBy(accessibility = "Graphics")
+    public AndroidElement graphicsOption;
+
 //    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Custom View\")")
 //    public AndroidElement customView;
 //
