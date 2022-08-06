@@ -6,6 +6,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import mobile.utils.MobileCommonUtils;
+import mobile.utils.WaitUtils;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 import static mobile.stepDefs.MobileHooks.*;
 import static org.junit.Assert.*;
@@ -17,7 +20,7 @@ public class ApiDemoStepDefs {
 
     @Given("user gets text of Accessibility option")
     public void userGetsTextOfAccessibilityOption() {
-        actualOptionText = MobileHooks.apiDemoHomePage.accessibilityOption.getText();
+        actualOptionText = apiDemoHomePage.accessibilityOption.getText();
     }
 
     @Then("user validates that it is {string}")
@@ -102,5 +105,31 @@ public class ApiDemoStepDefs {
     @And("user should see {string}")
     public void userShouldSee(String expectedText) {
         assertEquals(expectedText, getElementByText(androidDriver, expectedText).getText());
+    }
+
+    @When("user swipes down {int} times by coordinates x {int} yStart {int} and yEnd {int} and taps on {string}")
+    public void userSwipesDownTimesByCoordinatesXYStartAndYEndAndTapsOn(int times, int x, int yStart, int yEnd, String elementText) {
+        for (int i = 0; i < times; i++) verticalSwipeByCoordinates(androidDriver, x, yStart, yEnd);
+        getElementByText(androidDriver, elementText).click();
+    }
+
+    @Given("user navigates to {string} on device")
+    public void userNavigatesToOnDevice(String url) {
+        webDriver.get(url);
+    }
+
+    @And("user validates title is {string} on device")
+    public void userValidatesTitleIsOnDevice(String expectedTitle) {
+        WaitUtils.waitForPageTitle(webDriver, expectedTitle);
+        Assert.assertEquals(expectedTitle, webDriver.getTitle());
+    }
+
+    @When("user types {string} on search box and presses enter on device")
+    public void userTypesOnSearchBoxAndPressesEnterOnDevice(String searchText) {
+        if(webDriver.getCurrentUrl().contains("ebay")) {
+            ebayHomePage.searchBox.sendKeys(searchText + Keys.ENTER);
+        } else if(webDriver.getCurrentUrl().contains("amazon")) {
+            amazonHomePage.searchBox.sendKeys(searchText + Keys.ENTER);
+        }
     }
 }

@@ -70,5 +70,5 @@ Feature: Api Demo Application
   @verticalSwipeByCoordinates
   Scenario: Tap to Graphics and Swipe Down to Vertices By Coordinates
     Given user taps on "Graphics"
-    When user swipe down 3 times by coordinates x 500 yStart 1500 and yEnd 500 and taps on "Vertices"
+    When user swipes down 4 times by coordinates x 500 yStart 1500 and yEnd 500 and taps on "Vertices"
     Then user validates picture is displayed
