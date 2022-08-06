@@ -22,13 +22,16 @@ public class ApiDemoHomePage {
     @AndroidFindBy(accessibility = "Accessibility")
     public AndroidElement accessibilityOption;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Custom View\")")
-    public AndroidElement customView;
-
-    @AndroidFindBy(accessibility = "Views")
-    public AndroidElement viewsOption;
-
-    @AndroidFindBy(id = "android:id/text1")
-    public List<AndroidElement> allMainMenuOptions;
+//    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Custom View\")")
+//    public AndroidElement customView;
+//
+//    @AndroidFindBy(accessibility = "Views")
+//    public AndroidElement viewsOption;
+//
+//    @AndroidFindBy(id = "android:id/text1")
+//    public List<AndroidElement> allMainMenuOptions;
+//
+//    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Accessibility\")")
+//    public AndroidElement accessibilityOption2;
 
 }

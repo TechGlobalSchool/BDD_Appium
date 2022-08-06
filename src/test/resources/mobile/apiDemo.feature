@@ -6,11 +6,11 @@ Feature: Api Demo Application
     Given user gets text of Accessibility option
     Then user validates that it is "Accessibility"
 
-#  @ValidateCustomViewText
-#  Scenario: Validate custom view text
-#    Given user taps on "Accessibility"
-#    Then user should be able to see "Custom View"
-#
+  @ValidateCustomViewText
+  Scenario: Validate custom view text
+    Given user taps on "Accessibility"
+    Then user should be able to see "Custom View"
+
 #  @ValidateInputBox
 #  Scenario: Validate input box is displayed
 #    Given user taps on Views

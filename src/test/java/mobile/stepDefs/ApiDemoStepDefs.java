@@ -1,12 +1,14 @@
 package mobile.stepDefs;
 
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import static org.junit.Assert.*;
+import mobile.utils.MobileCommonUtils;
 
-import static mobile.stepDefs.MobileHooks.*;
+import static mobile.stepDefs.MobileHooks.androidDriver;
+import static mobile.stepDefs.MobileHooks.apiDemoAccessibilityPage;
+import static org.junit.Assert.*;
+import static mobile.utils.MobileCommonUtils.*;
+
 
 public class ApiDemoStepDefs {
     String actualOptionText;
@@ -21,4 +23,14 @@ public class ApiDemoStepDefs {
         assertEquals(expectedOptionText, actualOptionText);
     }
 
+    @Given("user taps on {string}")
+    public void userTapsOn(String visibleText) {
+        getElementByText(androidDriver, visibleText).click();
+    }
+
+    @Then("user should be able to see {string}")
+    public void userShouldBeAbleToSee(String expectedElementText) {
+        assertTrue(apiDemoAccessibilityPage.customViewOption.isDisplayed());
+        assertEquals(expectedElementText, apiDemoAccessibilityPage.customViewOption.getText());
+    }
 }

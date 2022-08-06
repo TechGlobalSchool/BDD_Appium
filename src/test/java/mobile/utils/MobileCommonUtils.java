@@ -80,7 +80,7 @@ public class MobileCommonUtils {
                 .perform();
     }
 
-    public static AndroidElement elementByText(AndroidDriver<AndroidElement> driver, String visibleText) {
+    public static AndroidElement getElementByText(AndroidDriver<AndroidElement> driver, String visibleText) {
         return driver.findElementByAndroidUIAutomator("new UiSelector().text(\"" + visibleText + "\")");
     }
 
